@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drag and Drop Kiosk</title>
+    <link rel="stylesheet" href="dragNdrop.css">
+    <script src="/jquery/jquery-3.7.1.min.js"></script>
+    <script src="dragNdrop2.js"></script>
+</head>
+<body>
+    <h1>Drag & Drop Kiosk</h1>
+    <hr>
+    <div class="container">
+        <div class="box" id="boxMenu">
+            <h2>Menu Area</h2>
+            <div draggable="true" menuname="Americano" class="menu" data-price="1500">
+                Menu 1: 아메리카노 <br>
+                <img src="/img/ame.jpg" alt="Americano">
+            </div>
+            <div draggable="true" menuname="Muffin" class="menu" data-price="2000">
+                Menu 2: 초코머핀 <br>
+                <img src="/img/cho.jpg" alt="Muffin">
+            </div>
+            <div draggable="true" menuname="Smoothie" class="menu" data-price="3000">
+                Menu 3: 딸기스무디 <br>
+                <img src="/img/smo.jpg" alt="Smoothie">
+            </div>
+        </div>
+        <div class="box" id="boxCart">
+            <h2>Cart Area</h2>
+        </div>
+    </div>
+</body>
+</html>

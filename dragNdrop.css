@@ -1,0 +1,78 @@
+.container {
+    background-color: beige;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.box {
+    background-color: bisque;
+    border-radius: 5px;
+    padding: 20px;
+    width: 30vw;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.menu {
+    border: 1px solid blue;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: cadetblue;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.draggingMenu {
+    border: red;
+    background-color: black;
+    color: white;
+}
+
+#boxCart .menu {
+    font-weight: bold;
+    background-color: aquamarine;
+    border-color: yellow;
+    position: relative;
+}
+
+.quantity-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.quantity-wrapper button {
+    background-color: lightgray;
+    border: 1px solid darkgray;
+    border-radius: 3px;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.quantity-wrapper .quantity {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.subtotal {
+    margin-top: 5px;
+    font-size: 1.1em;
+    color: darkgreen;
+    text-align: center;
+}
+
+#totalDisplay {
+    margin-top: 20px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: navy;
+}
