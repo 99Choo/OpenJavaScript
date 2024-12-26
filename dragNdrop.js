@@ -163,6 +163,35 @@ document.addEventListener('click', function(event) {                    // 결�
     }
 });
 
+function updateMenuList() {
+    const menuList = document.getElementById('menuList');
+    const menuItems = document.querySelectorAll('#boxMenu .menu');
+
+    console.log('menuItems found:', menuItems.length); // 메뉴 갯수 확인
+
+    menuList.innerHTML = ''; // 기존 목록 초기화
+
+    menuItems.forEach(menu => {
+        const menuName = menu.getAttribute('menuname');
+        console.log('Menu Name:', menuName); // 메뉴 이름 출력
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+            ${menuName}
+            <button class="deleteMenuButton" data-menuname="${menuName}">삭제</button>
+        `;
+        menuList.appendChild(listItem);
+    });
+
+    // 삭제 버튼 이벤트 추가
+    const deleteButtons = document.querySelectorAll('.deleteMenuButton');
+    deleteButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            const menuNameToDelete = event.target.dataset.menuname;
+            deleteMenu(menuNameToDelete);
+        });
+    });
+}
+
 document.addEventListener('click', function(event) {
     if (event.target.id === 'adminButton') {
         const password = prompt('관리자 비밀번호를 입력하세요:');
@@ -180,6 +209,13 @@ function showAdminPopup() {
     const popup = document.createElement('div');
     popup.className = 'admin-popup';
     popup.innerHTML = `
+        <h2>관리자 기능</h2>
+        <div id="menuManagementArea">
+            <h3>기존 메뉴 관리</h3>
+            <ul id="menuList">
+                <!-- 기존 메뉴 목록이 여기 표시됩니다 -->
+            </ul>
+        </div>
         <h2>메뉴 추가</h2>
         <label>메뉴 이름:</label>
         <input type="text" id="menuName" placeholder="메뉴 이름을 입력하세요">
@@ -191,6 +227,7 @@ function showAdminPopup() {
         <input type="number" id="menuPrice" placeholder="메뉴 가격을 입력하세요">
         <button id="addMenuButton">메뉴 추가</button>
         <button id="closePopup">닫기</button>
+
     `;
     document.body.appendChild(popup);
     popup.style.display = "block";
@@ -219,7 +256,10 @@ function showAdminPopup() {
 
     document.getElementById('addMenuButton').addEventListener('click', handleAddMenu);
     document.getElementById('closePopup').addEventListener('click', () => popup.remove());
+
+    updateMenuList();
 }
+
 
 function updateSalesHistoryDisplay() {
     const salesTableBody = document.querySelector('#salesTable tbody');
